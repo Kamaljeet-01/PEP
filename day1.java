@@ -49,3 +49,66 @@ class Solution {
 
     }
 }
+
+
+
+//2. < Rows with maximum 1s>  time : 5ms
+    
+class Solution {
+    public int Count(int[] arr){
+        int count=0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==1){
+                count++;
+            }
+        }
+        return count;
+    }
+    public int[] rowAndMaximumOnes(int[][] mat) {
+        int[] ans = new int[2];
+        int[] arr = new int[mat.length];
+        int max=0,index=0;
+        for(int i=0;i<mat.length;i++){
+            arr[i]=Count(mat[i]);
+        }
+        for(int i=0;i<arr.length;i++){
+            if(max<arr[i]){
+                max= arr[i];
+                index = i;
+            }
+        }
+        ans[0]=index;
+        ans[1]=max;
+        return ans;
+
+    }
+}
+
+
+//Another approach Time :4ms
+
+class Solution {
+    public int[] rowAndMaximumOnes(int[][] mat) {
+        int[] arr = new int[mat.length];
+        int max=0,index=0;
+        for(int i=0;i<mat.length;i++){
+            int count=0;
+            for(int j=0;j<mat[0].length;j++){
+                if(mat[i][j]==1) 
+                    count++;
+            }
+            if(count==mat[i].length){
+                index=i;
+                max=count;
+                break;
+            }else{
+            arr[i]=count;
+            if(arr[i]>max){
+                max = arr[i];
+                index=i;
+            }
+            }
+        }
+        return new int[] {index,max}; 
+    }
+}
