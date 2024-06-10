@@ -90,3 +90,28 @@ class HelloWorld{
         else return false;
     }
 }
+
+
+//Common Divisor of array : (1979) 
+
+class Solution {
+    public int findGCD(int[] nums) {
+        int maxi = Integer.MIN_VALUE;
+        int mini = Integer.MAX_VALUE;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]>maxi) maxi = nums[i];
+            if(nums[i]<mini) mini = nums[i];
+        }
+        for(int i=mini;i>0;i-- ){
+            boolean ans = Check(i,mini,maxi);
+            if(ans) {
+                return i;
+        }
+    }
+    return 1;
+    }
+    public static boolean Check(int num,int n1,int n2){
+        if(n1%num == 0 && n2%num == 0 ) return true;
+        else return false;
+    }
+}
