@@ -66,3 +66,27 @@ class Solution {
     return (count);
 }
 }
+
+
+//HCF of 2 numbers :
+
+import java.util.*;
+class HelloWorld{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int num1=sc.nextInt();
+        int num2=sc.nextInt();
+        int min=(num1>num2)?num2:num1;
+        for(int i=min;i>0;i-- ){
+            boolean ans = Check(i,num1,num2);
+            if(ans) {
+                System.out.println(i);
+                break;
+        }
+    }
+    }
+    public static boolean Check(int num,int n1,int n2){
+        if(n1%num == 0 && n2%num == 0 ) return true;
+        else return false;
+    }
+}
