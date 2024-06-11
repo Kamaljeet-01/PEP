@@ -57,3 +57,28 @@ class Solution {
         return result;
     }
 }
+
+//Correct way to do above code :
+class HelloWorld{
+    public static void main(String[] args){
+        int[] nums = {2,2,2,3,3,2,3,2,5,5};
+        int count = singleNumber(nums);
+        System.out.println(count);
+    }
+    public static int singleNumber(int[] nums) {
+        int numb=0;
+        for(int i=0;i<31;i++){
+            int count=0;
+            for(int j=0;j<nums.length;j++){
+                int mask = (1<<i);
+                if((nums[j] & mask) != 0){
+                    count++;
+                }
+            }
+            if(count%4 != 0){
+                numb+=Math.pow(2,i)*1;
+            }
+        }
+        return numb;
+    }
+}
