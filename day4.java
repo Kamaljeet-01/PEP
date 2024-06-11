@@ -32,3 +32,28 @@ class CheckBit
         return true;
     }
 }
+
+
+//Single number II (137):
+
+class Solution {
+    public int singleNumber(int[] nums) {
+        Arrays.sort(nums);
+        int temp=0;
+        int result =0;
+        int count=0;
+        for(int i=0;i<nums.length;i++){
+            if(i == 0 || nums[i] != nums[i - 1]){
+                count=0;
+            }
+            if(count == 2){
+                temp=nums[i];
+                result = result^temp; 
+                count++;
+            }
+            result=result^nums[i];
+            count++;
+        }
+        return result;
+    }
+}
