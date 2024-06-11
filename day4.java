@@ -15,3 +15,20 @@ class HelloWorld{
         System.out.println("sum : "+sum);
     }
 }
+
+//Check whether Kth bit is set or not 
+
+class CheckBit
+{
+    // Function to check if Kth bit is set or not.
+    static boolean checkKthBit(int n, int k)
+    {
+        // Your code here
+        int num = 1 << k;
+        int ans = num & n;
+        if(ans == 0){
+            return false;
+        }
+        return true;
+    }
+}
