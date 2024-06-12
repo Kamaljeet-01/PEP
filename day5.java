@@ -21,3 +21,33 @@ class HelloWorld {
        }
     }
 }
+
+//GFG Selection sort Question :  (DIFFERENT APPROACH)
+
+class Solution
+{
+	int  select(int arr[], int i)
+	{
+        // code here such that selectionSort() sorts arr[]
+        int maxIdx=0;
+        int maxEle=arr[0];
+        for(int j=1;j<=i;j++){
+        if(arr[j]>maxEle){
+            maxEle = arr[j];
+            maxIdx = j;
+        }}
+        return maxIdx;
+	}
+	
+	void selectionSort(int arr[], int n)
+	{
+	    int temp=0;
+	    for(int i=1;i<=n;i++){
+	        int max=select(arr,n - i);
+	        int swapingIdx = n - i;
+	        temp=arr[n - i];
+	        arr[n - i] = arr[max];
+	        arr[max]= temp;
+	    }
+	}
+}
