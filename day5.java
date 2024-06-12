@@ -77,3 +77,18 @@ class HelloWorld {
        }
     }
 }
+
+
+//Factorial using recursion : (Simple code )
+
+
+class HelloWorld {
+    public static int Count(int n){
+    if (n==0 || n==1) return 1;
+     return n*Count(n - 1);
+    }
+    public static void main(String[] args) {
+       int n =5;
+       System.out.println(Count(n));
+    }
+}
