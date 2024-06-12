@@ -51,3 +51,29 @@ class Solution
 	    }
 	}
 }
+
+
+//Selection sort (Simple Approach)
+
+class HelloWorld {
+    public static void main(String[] args) {
+       int[] arr = {5,7,2,9,8,1};
+       int temp=0;
+       boolean flag=false;
+       for(int i=0;i<arr.length - 1;i++){
+           for(int j=i + 1;j<arr.length;j++){
+               if(arr[j]<arr[i]){
+                  temp = arr[j];
+                  arr[j]=arr[i];
+                  arr[i]= temp;
+                  flag=true;
+               }
+           }
+           if(flag == false) break;
+        
+       }
+        for(int k=0;k<arr.length;k++){
+           System.out.print(arr[k]+ " ");
+       }
+    }
+}
