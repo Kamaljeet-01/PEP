@@ -92,3 +92,40 @@ class HelloWorld {
        System.out.println(Count(n));
     }
 }
+
+
+//Merge 2 sorted Arrays :
+
+class HelloWorld {
+    public static void main(String[] args) {
+       int[] arr={1,3,5,6,7};
+       int[] nums={2,8,9,10,11};
+       int[] res = new int[10];
+       int i=0,j=0;
+       for(int k=0;k<10;k++){
+           
+           if(i<5 && j<5){
+                if(arr[i]<nums[j]){
+                    res[k]=arr[i];
+                    i++;
+                }else{
+                    res[k]=nums[j];
+                    j++;
+                }
+           }
+           //if 1 array is finished
+           else{
+               if(i>=5){
+                   res[k]=nums[j];
+                   j++;
+               }else{
+                   res[k]=arr[i];
+                   i++;
+               }
+           }
+       }
+       for(int m=0;m<10;m++){
+           System.out.print(res[m]+" ");
+       }
+        }
+}
