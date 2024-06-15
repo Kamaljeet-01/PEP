@@ -59,26 +59,26 @@ class Solution {
 }
 
 //Correct way to do above code :
-class HelloWorld{
-    public static void main(String[] args){
-        int[] nums = {2,2,2,3,3,2,3,2,5,5};
-        int count = singleNumber(nums);
-        System.out.println(count);
-    }
-    public static int singleNumber(int[] nums) {
-        int numb=0;
-        for(int i=0;i<31;i++){
-            int count=0;
-            for(int j=0;j<nums.length;j++){
-                int mask = (1<<i);
-                if((nums[j] & mask) != 0){
-                    count++;
+
+class HelloWorld {
+    public static int Search(int[] arr){
+        int ans =0;
+        for(int i=0;i<=31;i++){
+            int sum=0;
+            for(int j=0;j<arr.length;j++){
+                if((arr[j]&(1<<i)) != 0){
+                    sum++;
                 }
             }
-            if(count%4 != 0){
-                numb+=Math.pow(2,i)*1;
+            if(sum%3 == 1){
+                ans = ans | (1<<i);
             }
+            
         }
-        return numb;
+        return (ans);
+    }
+    public static void main(String[] args) {
+        int[] arr = {5,5,5,8,7,7,7,9,9,9,19,19,19};
+        System.out.println("num : "+Search(arr));
     }
 }
